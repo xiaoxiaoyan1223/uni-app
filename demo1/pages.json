@@ -1,0 +1,39 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	//下面放置的顺序与页面展示顺序一致
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "小燕吖",
+				"navigationBarBackgroundColor":"blue"
+			}
+		}
+	    ,{
+            "path" : "pages/list/list",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "新闻列表",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor":"blue"
+            }
+            
+        }
+        ,{
+            "path" : "pages/about/about",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "关于我们",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor":"blue"
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {}
+}
