@@ -35,5 +35,31 @@
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	},
-	"uniIdRouter": {}
+	"uniIdRouter": {},
+	//底部导航栏
+	"tabBar": {
+		"color": "#333",
+		"selectedColor": "#015FF9",
+		"list": [
+			{
+				"text":"首页",
+				"pagePath": "pages/index/index",
+				"iconPath": "static/home-h.png",
+				"selectedIconPath": "static/home.png"
+			},
+			{
+				"text":"新闻列表",
+				"pagePath": "pages/list/list",
+				"iconPath": "static/列表.png",
+				"selectedIconPath": "static/列表 (1).png"
+			},
+			{
+				"text":"关于我们",
+				"pagePath": "pages/about/about"	,
+				"iconPath": "static/联系我们.png",
+				"selectedIconPath": "static/联系我们 (1).png"
+			}
+			
+		]
+	}
 }
