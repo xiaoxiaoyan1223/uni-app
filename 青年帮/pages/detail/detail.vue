@@ -19,20 +19,22 @@
 		data() {
 			return {
 				options:null,
-				detail:{}
+				detail:{},
+				historyArr:[]
 			};
 		},
-		onLoad(e){
+		onShow(e){
 			this.options=e
 			this.getDetail()
 		},
-		method:{
+		methods:{
 			getDetail(){
 				uni.request({
-					url:"https://ku.qingnian8.com/dataApi/news/navlist.php",
+					url:"https://ku.qingnian8.com/dataApi/news/detail.php",
 					data:this.options,
 					success:res=>{
-						res.data.content=res.data.content.replace(/<img/gi,'<img style="max-width:100%"')
+						console.log("detail",res.data);
+						// res.data.content=res.data.content.replace(/<img/gi,'<img style="max-width:100%"')
 						this.detail=res.data
 						this.saveHistory()
 						uni.setNavigationBarTitle({
@@ -43,6 +45,24 @@
 			},
 			saveHistory(){
 				
+				let historyArr=uni.getStorageSync("historyArr")||[]
+				let item={
+					id:this.detail.id,
+					classid:this.detail.classid,
+					picurl:this.detail.picurl,
+					title:this.detail.title,
+					looktime:Date.now()
+				}
+				let index=historyArr.findIndex(i=>{
+					return i.id==this.detail.id
+				})
+				if(index>=0){
+					historyArr.splice(index,1)
+				}
+				
+				historyArr.unshift(item)
+				historyArr=historyArr.slice(1,10)
+				uni.setStorageSync("historyArr",historyArr)
 			}
 		}
 	}
