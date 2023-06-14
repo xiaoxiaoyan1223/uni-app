@@ -17,7 +17,7 @@
 		data() {
 			return {
 				listArr:[]
-			};
+			}
 		},
 		onLoad(){
 			this.getData()
@@ -26,13 +26,13 @@
 			//跳转到详情页
 			getDetail(){
 				uni.navigateTo({
-					url:"/pages/detail/detail"
+					url:`/pages/detail/detail??cid=${item.classid}&id=${item.id}`
 				})
-			}
+			},
 			//获取缓存记录
 			getData(){
-				let hisArr=uni.getStorageSync("historyArr")||[]
-				this.listArr=hisArr
+				let hisArr=uni.getStorageSync("historyArr")||[],
+				listArr=hisArr
 			}
 		}
 	}
